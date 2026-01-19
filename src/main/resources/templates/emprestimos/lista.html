@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+
+<div layout:fragment="conteudo">
+
+    <div class="d-flex justify-content-between mb-3">
+        <h2>Empréstimos</h2>
+        <a class="btn btn-primary" href="/emprestimos/novo">+ Novo Empréstimo</a>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Livro</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="e : ${emprestimos}">
+            <td th:text="${e.id}"></td>
+            <td th:text="${e.usuario.nome}"></td>
+            <td th:text="${e.livro.titulo}"></td>
+            <td th:text="${e.dataEmprestimo}"></td>
+            <td th:text="${e.status}"></td>
+            <td>
+                <form th:if="${e.status.name() == 'ATIVO'}"
+                      th:action="@{/emprestimos/{id}/devolver(id=${e.id})}"
+                      method="post">
+                    <button class="btn btn-success btn-sm">
+                        Devolver
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</html>

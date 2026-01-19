@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/base}">
+
+<div layout:fragment="conteudo">
+
+    <h2>Novo Empréstimo</h2>
+
+    <form th:action="@{/emprestimos}" method="post">
+
+        <div class="mb-3">
+            <label>Usuário</label>
+            <select class="form-select" name="usuarioId">
+                <option th:each="u : ${usuarios}"
+                        th:value="${u.id}"
+                        th:text="${u.nome}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Livro</label>
+            <select class="form-select" name="livroId">
+                <option th:each="l : ${livros}"
+                        th:value="${l.id}"
+                        th:text="${l.titulo}">
+                </option>
+            </select>
+        </div>
+
+        <button class="btn btn-success">Confirmar Empréstimo</button>
+        <a class="btn btn-secondary" href="/emprestimos">Cancelar</a>
+
+    </form>
+
+</div>
+</html>

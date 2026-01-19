@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 28px;
+            margin-top: 10px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Sistema Biblioteca</h1>
+</header>
+
+<nav>
+    <a href="/livros">Livros</a>
+    <a href="/usuarios">Usuários</a>
+    <a href="/emprestimos">Empréstimos</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Total de Livros</h2>
+        <p th:text="${totalLivros}">0</p>
+    </div>
+
+    <div class="card">
+        <h2>Livros Disponíveis</h2>
+        <p th:text="${livrosDisponiveis}">0</p>
+    </div>
+
+</div>
+
+</body>
+</html>
