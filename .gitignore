@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+# Banco H2
+*.mv.db
+*.trace.db
+/data/
+# Environment
+.env
+application.properties
+# Maven
+/target/
+
+# Logs
+*.log
